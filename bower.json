@@ -1,0 +1,24 @@
+{
+  "name": "darl-codemirror",
+  "authors": [
+    "Andrew Edmonds <sales@docandys.com>"
+  ],
+  "description": "Adds a mode to codemirror so you can edit and lint DARL code files",
+  "main": "dist/darl-codemirror.js",
+  "moduleType": [],
+  "keywords": [
+    "DARL",
+    "codemirror",
+    "ai"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/drandysip/darl-codemirror",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
