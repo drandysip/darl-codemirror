@@ -117,6 +117,10 @@
                 case "sequence":
                     found.push({ text: "seqName;", displayText: "name + a jagged array of items" });
                     break;
+                case "otherwise":
+                    found.push({ text: "if", displayText: "if" });
+                    break;
+
             }
             if (found.length > 0)
                 return { list: found, from: CodeMirror.Pos(cur.line, start), to: CodeMirror.Pos(cur.line, end) };
@@ -128,7 +132,7 @@
                 // return the inner list.
                 var list = ("if anything is then will be confidence input output numeric categorical textual constant string " +
                     "sum product sigmoid normprob round match and or not maximum minimum fuzzytuple " +
-                    "exists absent present sequence document randomtext default").split(" ");
+                    "exists absent present sequence document randomtext otherwise").split(" ");
 
                 for (var i = 0; i < list.length; i++) {
                     var word = list[i];
@@ -139,7 +143,7 @@
                 return { list: found, from: CodeMirror.Pos(cur.line, start), to: CodeMirror.Pos(cur.line, end) };
             }
             else {//return the outer list
-                var list = ("ruleset wire mapinput mapoutput pattern delay supervised").split(" ");
+                var list = ("ruleset wire mapinput mapoutput pattern delay").split(" ");
 
                 for (var i = 0; i < list.length; i++) {
                     var word = list[i];
@@ -373,7 +377,7 @@
             name: "clike",
             keywords: words("if anything is then will be confidence input output numeric categorical textual constant string " +
                 "sum product sigmoid normprob round match and or not maximum minimum fuzzytuple " +
-                "ruleset wire mapinput mapoutput pattern delay exists absent present sequence supervised document randomtext default"),
+                "ruleset wire mapinput mapoutput pattern delay exists absent present sequence supervised document randomtext otherwise"),
             blockKeywords: words("ruleset"),
             atoms: words("true false null"),
             hooks: {
