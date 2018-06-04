@@ -93,11 +93,13 @@
                     found.push({ text: "numeric", displayText: "numeric" });
                     found.push({ text: "categorical", displayText: "categorical" });
                     found.push({ text: "textual;", displayText: "textual" });
+                    found.push({ text: "temporal;", displayText: "temporal" });
                     break;
                 case "output":
                     found.push({ text: "numeric", displayText: "numeric" });
                     found.push({ text: "categorical", displayText: "categorical" });
                     found.push({ text: "textual;", displayText: "textual" });
+                    found.push({ text: "temporal;", displayText: "temporal" });
                     break;
                 case "confidence":
                     found.push({ text: "1.0;", displayText: "number between 0.0 and 1.0" });
@@ -110,6 +112,9 @@
                     break;
                 case "constant":
                     found.push({ text: "Zero 0;", displayText: "name + numerical value" });
+                    break;
+                case "period":
+                    found.push({ text: "week 7.00:00:0.0;", displayText: "name + time offset value" });
                     break;
                 case "string":
                     found.push({ text: "stringName \U+0022 \U+0022 ;", displayText: "name + text in inverted commas" });
@@ -134,7 +139,7 @@
                 // return the inner list.
                 var list = ("if anything is then will be confidence input output numeric categorical textual constant string " +
                     "sum product sigmoid normprob round match and or not maximum minimum fuzzytuple " +
-                    "exists absent present sequence document randomtext otherwise store").split(" ");
+                    "exists absent present sequence document randomtext otherwise store period temporal").split(" ");
 
                 for (var i = 0; i < list.length; i++) {
                     var word = list[i];
@@ -379,7 +384,7 @@
             name: "clike",
             keywords: words("if anything is then will be confidence input output numeric categorical textual constant string " +
                 "sum product sigmoid normprob round match and or not maximum minimum fuzzytuple " +
-                "ruleset wire mapinput mapoutput pattern delay exists absent present sequence supervised document randomtext otherwise store"),
+                "ruleset wire mapinput mapoutput pattern delay exists absent present sequence supervised document randomtext otherwise store period temporal"),
             blockKeywords: words("ruleset"),
             atoms: words("true false null"),
             hooks: {
