@@ -94,6 +94,7 @@
                     found.push({ text: "categorical", displayText: "categorical" });
                     found.push({ text: "textual;", displayText: "textual" });
                     found.push({ text: "temporal;", displayText: "temporal" });
+                    found.push({ text: "dynamic;", displayText: "dynamic" });
                     break;
                 case "output":
                     found.push({ text: "numeric", displayText: "numeric" });
@@ -126,7 +127,10 @@
                     found.push({ text: "if", displayText: "if" });
                     break;
                 case "store":
-                    found.push({ text: "storename ;", displayText: "name of store" });
+                    found.push({ text: "storename;", displayText: "name of store" });
+                    break;
+                case "dynamic":
+                    found.push({ text: "categorical", displayText: "categorical" });
                     break;
             }
             if (found.length > 0)
@@ -139,7 +143,7 @@
                 // return the inner list.
                 var list = ("if anything is then will be confidence input output numeric categorical textual constant string " +
                     "sum product sigmoid normprob round match and or not maximum minimum fuzzytuple " +
-                    "exists absent present sequence document randomtext otherwise store period temporal").split(" ");
+                    "exists absent present sequence document randomtext otherwise store period temporal dynamic").split(" ");
 
                 for (var i = 0; i < list.length; i++) {
                     var word = list[i];
@@ -384,7 +388,7 @@
             name: "clike",
             keywords: words("if anything is then will be confidence input output numeric categorical textual constant string " +
                 "sum product sigmoid normprob round match and or not maximum minimum fuzzytuple " +
-                "ruleset wire mapinput mapoutput pattern delay exists absent present sequence supervised document randomtext otherwise store period temporal"),
+                "ruleset wire mapinput mapoutput pattern delay exists absent present sequence supervised document randomtext otherwise store period temporal dynamic"),
             blockKeywords: words("ruleset"),
             atoms: words("true false null"),
             hooks: {
